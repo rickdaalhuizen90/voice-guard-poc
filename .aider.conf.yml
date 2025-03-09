@@ -1,0 +1,33 @@
+model: openrouter/anthropic/claude-3.7-sonnet
+weak-model: ollama_chat/qwen2.5-coder:3b
+
+# React-specific additions
+react:
+  enable-jsx: true
+  preferred-styling: styled-components
+  state-management: redux
+
+# Editor settings
+editor: nvim
+language: typescript
+
+# Improved chat settings
+chat:
+  show-diffs: true
+  stream: true
+  cache-prompts: true
+  max-context: 16384
+
+# Project-specific settings
+project-root: ./src
+auto-import:
+  - react
+  - react-dom
+  - react-router-dom
+lint-on-save: true
+
+# Version control
+git:
+  auto-commit: component-changes
+  hooks:
+    pre-commit: bun run lint
